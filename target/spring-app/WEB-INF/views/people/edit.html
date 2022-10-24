@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update city</title>
+</head>
+<body>
+<form accept-charset="UTF-8" th:method="PATCH" th:action ="@{/people/{id}(id=${person.getPerson_id()})}" th:object = "${person}">
+    <label for = "name"> Введите ФИО:  </label>
+    <input type ="text" th:field ="*{name}" id = "name"/>
+    <br/>
+    <label for ="dayBirthday"> Введите год рождения:  </label>
+    <input type ="text" th:field ="*{dayBirthday}" id = "dayBirthday"/>
+    <br/>
+    <input type ="submit" value = "Редактировать!"/>
+
+</form>
+</body>
+</html>

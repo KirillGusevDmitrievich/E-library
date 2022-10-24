@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все книги</title>
+</head>
+<body>
+<div>
+    <h2> Список книг</h2>
+
+
+</div>
+<hr>
+
+<div style="display:flex; height:300px">
+
+    <div style="display:flex; flex-direction: column; gap: 10px; flex-wrap: wrap">
+
+        <a  style="font-size:20px; line-height:24px; cursor:pointer; text-decoration:none" th:each="books:${book}"
+            th:href="@{/books/{id}(id=${books.getBook_id()})}"
+            th:text="${books.getTitle()+', '+books.getAutor()+', ' +books.getYear()}">book</a>
+
+    </div>
+
+</div>
+<br/>
+<hr/>
+
+<a style="font-size:20px; line-height:24px; cursor:pointer; text-decoration:none" href="/books/new"> Добавить книгу </a>
+<hr>
+<a style="font-size:20px; line-height:24px; cursor:pointer; text-decoration:none" href="/people"> Перейти на страницу со списком читателей </a>
+</body>
+</html>

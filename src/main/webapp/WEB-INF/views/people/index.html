@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все города</title>
+</head>
+<body>
+<div>
+    <h2> Электронная библиотека</h2>
+    <p> Ниже указаны имена читателей, которые пользуются библиотекой. Кликнув на одного из читателей, можно узнать, находится ли какая-либо книга у него на прочтении</p>
+
+</div>
+<hr>
+
+<div style="display:flex; height:300px">
+
+    <div style="display:flex; flex-direction: column; gap: 10px; flex-wrap: wrap">
+
+        <a  style="font-size:20px; line-height:24px; cursor:pointer; text-decoration:none" th:each="person:${people}"
+            th:href="@{/people/{id}(id=${person.getPerson_id()})}"
+            th:text="${person.getName()+', '+person.getDayBirthday()}">user</a>
+
+    </div>
+
+</div>
+<br/>
+<hr/>
+
+<a style="font-size:20px; line-height:24px; cursor:pointer; text-decoration:none" href="/people/new"> Добавить человека </a>
+<hr>
+<a style="font-size:20px; line-height:24px; cursor:pointer; text-decoration:none" href="/books"> Перейти на страницу списка книг </a>
+</body>
+</html>
